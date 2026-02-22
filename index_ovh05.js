@@ -51,4 +51,6 @@ button.addEventListener("click", () => {
   domainResponse6.textContent = domain.value;
   domainResponse7.textContent = domain.value;
   domainResponse8.textContent = domain.value;
+  domainResponse9.textContent = domain.value;
+  domainResponse10.textContent = domain.value;
 });
