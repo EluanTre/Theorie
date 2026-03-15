@@ -289,7 +289,19 @@ ignoreip = 127.0.0.1/8 ::1 [MON ADRESSE IPv6]</code></pre>
     listen 80;
     listen [::]:80;
     server_name <span id="domainResponse2">[SOUS_DOMAINE]</span>.fr;
+    
+    # Si l'application inclus la librairie Dash
+    location /dash/ {
+    proxy_pass http://127.0.0.1:[PORT RESEAU]/dash/;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+    proxy_read_timeout 300s;
+    proxy_connect_timeout 75s;
+    }
 
+    # FastAPI
     location / {
         proxy_pass http://127.0.0.1:[PORT RESEAU];
         proxy_set_header Host $host;
@@ -425,7 +437,7 @@ ignoreip = 127.0.0.1/8 ::1 [MON ADRESSE IPv6]</code></pre>
     # --- Headers de sécurité ---
 
     # HSTS : forcer HTTPS pour 2 ans
-    add_header Strict-Transport-Security "max-age=63072000; includeSubDomains" always;
+    add_header Content-Security-Policy "default-src 'self'; script-src 'self' https://cdn.jsdelivr.net 'unsafe-inline'; style-src  'self' https://cdn.jsdelivr.net 'unsafe-inline'; img-src 'self' data:;" always;
 
     # Empêche l'affichage du site dans une iframe (clickjacking)
     add_header X-Frame-Options "DENY" always;
