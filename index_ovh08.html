@@ -19,6 +19,7 @@
             📇 <a href="#part3">BLOC 3 : Accès à son adresse IPv6</a> <br>
             🛄 <a href="#part4">BLOC 4 : Blocage manuel d'adresses IP</a> <br>
             🚮 <a href="#part5">BLOC 5 : Suppression d'un répertoire</a> <br>
+            🚮 <a href="#part6">BLOC 6 : Suppression d'un certificat Let's Encrypt</a> <br>
         </div>
 
         <!-- ********************* ZONE DE SAISIE ********************* -->
@@ -249,6 +250,37 @@
                 <tr>
                     <td>VM</td>
                     <td>Suppression d'un répertoire contenant des sous-dossiers / fichiers</td>
+                </tr>
+            </tbody>
+        </table><br>
+
+        <!-- *************************** BLOC 6 *************************** -->
+        <div class="section-title" id="part5">🚮 BLOC 6 - SUPPRESSION D'UN CERTIFICAT LET'S ENCRYPT</div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Shell</th>
+                    <th>Motif</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="2">
+                        <pre><code>sudo certbot certificates</code></pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>VM</td>
+                    <td>Liste des certificats présents rattachés aux sous-domaines existants</td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <pre><code>sudo certbot delete --cert-name sousdomaine.datacofi.fr</code></pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>VM</td>
+                    <td>Suppression du certificat Let's Encrypt ciblé</td>
                 </tr>
             </tbody>
         </table><br>
