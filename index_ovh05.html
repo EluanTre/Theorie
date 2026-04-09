@@ -331,7 +331,9 @@ ignoreip = 127.0.0.1/8 ::1 [MON ADRESSE IPv6]</code></pre>
                         <strong>proxy_pass http://127.0.0.1:[PORT RESEAU]</strong> : redirige vers Docker sur
                         port VM<br>
                         <strong>proxy_set_header</strong> : transmet infos client <br>
-                        <strong>proxy_*_timeout</strong> : délais pour ne pas crash <br><br>
+                        <strong>proxy_*_timeout</strong> : délais pour ne pas crash <br>
+                        <b>proxy_request_buffering off; proxy_buffering off;</b> : évite que Nginx consomme de la
+                        mémoire pour tamponner de grandes réponses<br><br>
                         Puis : <br>
                         → <b>CTRL + O</b> (pour 'Write Out' / Enregistrer)<br>
                         → <b>ENTREE</b> (pour confirmer le nom du fichier)<br>
