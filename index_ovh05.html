@@ -290,10 +290,10 @@ ignoreip = 127.0.0.1/8 ::1 [MON ADRESSE IPv6]</code></pre>
     listen [::]:80;
     server_name <span id="domainResponse2">[SOUS_DOMAINE]</span>.fr;
 
-    # Chargement max taille des fichiers (par exemple 100 Mo)
+    # Chargement max taille des fichiers à charger (par exemple 100 Mo)
     client_max_body_size 100M;
     
-    # Si l'application inclus la librairie Dash
+    <b><u># Si l'application inclus la librairie Dash</u></b>
     location /dash/ {
         proxy_pass http://127.0.0.1:[PORT RESEAU]/dash/;
         proxy_set_header Host $host;
